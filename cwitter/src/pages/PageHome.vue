@@ -47,7 +47,7 @@
             :key="cweet.date" 
             class="q-py-md"
           >
-            <q-item-section avatar>
+            <q-item-section avatar top>
               <q-avatar>
                 <img src="https://cdn.quasar.dev/img/avatar5.jpg" />
               </q-avatar>
@@ -56,12 +56,16 @@
             <q-item-section>
               <q-item-label>
                 <strong>Serkan Oz</strong>
-                <span class="text-grey-7"> @oz_serkan</span>
+                <span class="text-grey-7"> 
+                  @oz_serkan
+                  <br class="lt-md">&bull; 
+                  {{ cweet.date | relativeDate }}
+                </span>
               </q-item-label>
               <q-item-label class="cweet-content text-body1">
                 {{ cweet.content }}
               </q-item-label>
-              <div class="cweet-icons row justify-between">
+              <div class="cweet-icons row justify-between q-mt-sm">
                 <q-btn 
                   flat 
                   round 
@@ -69,10 +73,12 @@
                   icon="far fa-comment" 
                   size="sm" 
                 />
-                <q-btn 
+                <q-btn
+                  @click="retweetThis(cweet)" 
+                  :color="cweet.retweet ? 'green' : 'grey'"
                   flat 
                   round 
-                  color="grey" 
+                  
                   icon="fas fa-retweet" 
                   size="sm" 
                 />
@@ -86,16 +92,13 @@
                 />
                 <q-btn 
                   @click="deleteCweet(cweet)" 
-                  flat round 
+                  flat 
+                  round 
                   color="grey" 
                   icon="fas fa-trash" 
                   size="sm" 
                 />
               </div>
-            </q-item-section>
-
-            <q-item-section side top>
-              {{ cweet.date | relativeDate }}
             </q-item-section>
           </q-item>
         </transition-group>
@@ -105,22 +108,22 @@
 </template>
 
 <script>
-import { formatDistance } from "date-fns";
+import { formatDistance } from 'date-fns';
 import db from 'src/boot/firebase'
-import { collection, query, onSnapshot, orderBy, addDoc, doc, deleteDoc, updateDoc } from "firebase/firestore";
+import { collection, query, onSnapshot, orderBy, addDoc, doc, deleteDoc, updateDoc } from 'firebase/firestore';
 
 export default{
-  name: "PageHome",
+  name: 'PageHome',
   data() {
     return {
-      newCweetContent: "",
+      newCweetContent: '',
       cweets: [
         // {
-        //   content: "Random content",
+        //   content: 'Random content',
         //   date: 1661973142918,
         // },
         // {
-        //   content: "Random content 2",
+        //   content: 'Random content 2',
         //   date: 1661972581011,
         // },
       ],
@@ -132,29 +135,35 @@ export default{
         content: this.newCweetContent,
         date: Date.now(),
         liked: false,
+        retweet: false,
+        reply: []
       };
       const docRef = await addDoc(collection(db, 'cweets'), newCweet);
       console.log('Document written with ID: ', docRef.id)
-      // this.cweets.unshift(newCweet)
       this.newCweetContent = ''
     },
+
     async deleteCweet(cweet) {
       await deleteDoc(doc(db, 'cweets', cweet.id))
-      let idToDelete = cweet.id
-      let index = this.cweets.findIndex(cweet => cweet.id === idToDelete)
-      this.cweets.splice(index, 1)
+      // let idToDelete = cweet.id
+      // let index = this.cweets.findIndex(cweet => cweet.id === idToDelete)
+      // this.cweets.splice(index, 1)
     },
     async toggleLiked(cweet) {
-      const likeRef = doc(db, "cweets", cweet.id);
+      const likeRef = doc(db, 'cweets', cweet.id);
       await updateDoc(likeRef, {
-        liked: !cweet.liked
-});
+        liked: !cweet.liked});
+    },
+    async retweetThis(cweet) {
+      const retweetRef = doc(db, 'cweets', cweet.id);
+      await updateDoc(retweetRef, {
+        retweet: !cweet.retweet});
     }
   },
   filters: {
     relativeDate(value) {
-      return formatDistance(value, new Date(), { addSuffix: true });
-    },
+      return formatDistance(value, new Date())
+    }
   },
   mounted() {
     const q = query(collection(db, 'cweets'), orderBy('date') )
@@ -162,9 +171,9 @@ export default{
       snapshot.docChanges().forEach((change) => {
         let cweetChange = change.doc.data()
         cweetChange.id = change.doc.id
-        this.cweets.unshift(cweetChange)
         if (change.type === 'added') {
             console.log('New cweet: ', cweetChange)
+            this.cweets.unshift(cweetChange)
         }
         if (change.type === 'modified') {
             console.log('Modified cweet: ', cweetChange)
@@ -182,7 +191,7 @@ export default{
 }
 </script>
 
-<style lang="sass">
+<style lang='sass'>
 .new-Cweet
   textarea
     font-size: 19px

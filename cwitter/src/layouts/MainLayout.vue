@@ -36,6 +36,7 @@
           <q-list>
             <q-item 
               to="/"
+              class='q-mb-md'
               clickable 
               v-ripple
               exact
@@ -47,7 +48,8 @@
               <q-item-section class="text-h6 q-mb-5">Home</q-item-section>
             </q-item>  
             <q-item 
-              to="/explore"
+              to="/about"
+              class='q-mb-md'
               clickable 
               v-ripple
               exact
@@ -60,6 +62,7 @@
             </q-item>
             <q-item 
               to="/notifications"
+              class='q-mb-md'
               clickable 
               v-ripple
               exact
@@ -71,7 +74,8 @@
               <q-item-section class="text-h6 q-mb-5">Notifications</q-item-section>
             </q-item>  
             <q-item 
-              to="/notifications"
+              to="/messages"
+              class='q-mb-md'
               clickable 
               v-ripple
               exact
@@ -85,6 +89,7 @@
 
              <q-item 
               to="/bookmarks"
+              class='q-mb-md'
               clickable 
               v-ripple
               exact
@@ -96,7 +101,8 @@
               <q-item-section class="text-h6 q-mb-5">Bookmarks</q-item-section>
             </q-item>  
             <q-item 
-              to="/explore"
+              to="/lists"
+              class='q-mb-md'
               clickable 
               v-ripple
               exact
@@ -110,7 +116,8 @@
               <q-item-section class="text-h6 q-mb-5">Lists</q-item-section>
             </q-item>
             <q-item 
-              to="/notifications"
+              to="/profile"
+              class='q-mb-md'
               clickable 
               v-ripple
               exact
@@ -122,7 +129,8 @@
               <q-item-section class="text-h6 q-mb-5">Profile</q-item-section>
             </q-item>  
             <q-item 
-              to="/notifications"
+              to="/more"
+              class='q-mb-md'
               clickable 
               v-ripple
               exact
@@ -135,73 +143,85 @@
             </q-item>
           </q-list>
         </div>
+
+        <div class="col-1"></div>
       </div>
     </q-drawer>
 
     <q-drawer
       show-if-above
+      :width='600'
       v-model="right" 
       side="right" 
       bordered
     >
-      <q-input
-        placeholder="Search Cwitter"
-        class="q-ma-md"
-        rounded
-        outlined
-        dense
-      >
-        <template v-slot:prepend>
-          <q-icon name="search" />
-        </template>
-      </q-input>
+      <div class="row">
+        <div class="col-1"></div>
+        <div class="col-8">
+          <q-input
+            placeholder="Search Cwitter"
+            class="q-ma-md"
+            rounded
+            standout
+            outlined
+            dense
+            bg-color='grey-2'
+          >
+            <template v-slot:prepend>
+              <q-icon name="search" />
+            </template>
+          </q-input>
 
-      <q-list 
-        padding
-        separator
-      >
-        <q-item class="q-pa-md"> 
-          <q-item-section>
-            <q-item-label overline class="text-gray">News</q-item-label>
-            <q-item-label
-              class="text-weight-bold"
-            >Breaking News!</q-item-label>
-            <q-item-label caption>Secondary line text. Lorem ipsum dolor sit amet, consectetur adipiscit elit.</q-item-label>
-          </q-item-section>
+          <q-list 
+            padding
+            separator
+          >
+            <q-item class="q-pa-md"> 
+              <q-item-section>
+                <q-item-label overline class="text-gray">News</q-item-label>
+                <q-item-label
+                  class="text-weight-bold"
+                >Breaking News!</q-item-label>
+                <q-item-label caption>Secondary line text. Lorem ipsum dolor sit amet, consectetur adipiscit elit.</q-item-label>
+              </q-item-section>
 
-          <q-item-section side top>
-            <q-item-label caption>5 min ago</q-item-label>
-          </q-item-section>
-        </q-item>
+              <q-item-section side top>
+                <q-item-label caption>5 min ago</q-item-label>
+              </q-item-section>
+            </q-item>
 
-        <q-item class="q-pa-md"> 
-          <q-item-section>
-            <q-item-label overline class="text-gray">News</q-item-label>
-            <q-item-label
-              class="text-weight-bold"
-            >Breaking News!</q-item-label>
-            <q-item-label caption>Secondary line text. Lorem ipsum dolor sit amet, consectetur adipiscit elit.</q-item-label>
-          </q-item-section>
+            <q-item class="q-pa-md"> 
+              <q-item-section>
+                <q-item-label overline class="text-gray">News</q-item-label>
+                <q-item-label
+                  class="text-weight-bold"
+                >Breaking News!</q-item-label>
+                <q-item-label caption>Secondary line text. Lorem ipsum dolor sit amet, consectetur adipiscit elit.</q-item-label>
+              </q-item-section>
 
-          <q-item-section side top>
-            <q-item-label caption>5 min ago</q-item-label>
-          </q-item-section>
-        </q-item>
+              <q-item-section side top>
+                <q-item-label caption>5 min ago</q-item-label>
+              </q-item-section>
+            </q-item>
 
-        <q-item class="q-pa-md">
-          <q-item-section>
-            <q-item-label overline class="text-gray">News</q-item-label>
-            <q-item-label
-              class="text-weight-bold"
-            >Breaking News!</q-item-label>
-            <q-item-label caption>Secondary line text. Lorem ipsum dolor sit amet, consectetur adipiscit elit.</q-item-label>
-          </q-item-section>
+            <q-item class="q-pa-md">
+              <q-item-section>
+                <q-item-label overline class="text-gray">News</q-item-label>
+                <q-item-label
+                  class="text-weight-bold"
+                >Breaking News!</q-item-label>
+                <q-item-label caption>Secondary line text. Lorem ipsum dolor sit amet, consectetur adipiscit elit.</q-item-label>
+              </q-item-section>
 
-          <q-item-section side top>
-            <q-item-label caption>5 min ago</q-item-label>
-          </q-item-section>
-        </q-item>
-      </q-list>
+              <q-item-section side top>
+                <q-item-label caption>5 min ago</q-item-label>
+              </q-item-section>
+            </q-item>
+          </q-list>
+        </div>
+        <div class="col-4"></div>
+      </div>
+
     </q-drawer>
 
     <q-page-container>
@@ -223,8 +243,6 @@ export default {
   }
 }
 
-  
-    
 </script>
 
 <style lang="sass">

@@ -8,7 +8,7 @@
           <span class="gt-sm">{{ $route.name }}</span>
           <q-icon
             class="header-icon q-pa-md lt-md"
-            name="fa-solid fa-dove"
+            name="fa-brands fa-twitter"
             size="sm"
             color="primary"
           />
@@ -19,45 +19,131 @@
     <q-drawer 
       show-if-above 
       v-model="left" 
-      :width="280"
+      :width="450"
       side="left" 
       bordered
     >
-      <q-icon
-        class="q-pa-md"
-        name="fa-solid fa-dove"
-        size="lg"
-        color="primary"
-      />
-      <q-list>
-        <q-item 
-          to="/"
-          clickable 
-          v-ripple
-          exact
-        >
-          <q-item-section avatar>
-            <q-icon name="home" size="md" />
-          </q-item-section>
+      <div class="row">
+        <div class="col-4"></div>
 
-          <q-item-section class="text-h6 text-weight-bold">Home</q-item-section>
-        </q-item>  
-        <q-item 
-          to="/about"
-          clickable 
-          v-ripple
-          exact
-        >
-          <q-item-section avatar>
-            <q-icon name="help" size="md" />
-          </q-item-section>
+        <div class="col-8">
+          <q-icon
+            class="q-pa-md"
+            name="fa-brands fa-twitter"
+            size="29px"
+            color="primary"
+          />
+          <q-list>
+            <q-item 
+              to="/"
+              clickable 
+              v-ripple
+              exact
+            >
+              <q-item-section avatar>
+                <q-icon name="fa-solid fa-house" size="22px" />
+              </q-item-section>
 
-          <q-item-section class="text-h6 text-weight-bold">About</q-item-section>
-        </q-item>
-      </q-list>
+              <q-item-section class="text-h6 q-mb-5">Home</q-item-section>
+            </q-item>  
+            <q-item 
+              to="/explore"
+              clickable 
+              v-ripple
+              exact
+            >
+              <q-item-section avatar>
+                <q-icon name="fa-light fa-hashtag" size="30px" />
+              </q-item-section>
+
+              <q-item-section class="text-h6 q-mb-5">Explore</q-item-section>
+            </q-item>
+            <q-item 
+              to="/notifications"
+              clickable 
+              v-ripple
+              exact
+            >
+              <q-item-section avatar>
+                <q-icon name="fa-regular fa-bell" size="25px" />
+              </q-item-section>
+
+              <q-item-section class="text-h6 q-mb-5">Notifications</q-item-section>
+            </q-item>  
+            <q-item 
+              to="/notifications"
+              clickable 
+              v-ripple
+              exact
+            >
+              <q-item-section avatar>
+                <q-icon name="fa-regular fa-envelope" size="25px" />
+              </q-item-section>
+
+              <q-item-section class="text-h6 q-mb-5">Messages</q-item-section>
+            </q-item>
+
+             <q-item 
+              to="/bookmarks"
+              clickable 
+              v-ripple
+              exact
+            >
+              <q-item-section avatar>
+                <q-icon name="fa-regular fa-bookmark" size="sm" />
+              </q-item-section>
+
+              <q-item-section class="text-h6 q-mb-5">Bookmarks</q-item-section>
+            </q-item>  
+            <q-item 
+              to="/explore"
+              clickable 
+              v-ripple
+              exact
+            >
+              <q-item-section avatar>
+                <q-icon name="fa-solid fa-bars-staggered" size="sm" />
+              </q-item-section>
+
+              
+
+              <q-item-section class="text-h6 q-mb-5">Lists</q-item-section>
+            </q-item>
+            <q-item 
+              to="/notifications"
+              clickable 
+              v-ripple
+              exact
+            >
+              <q-item-section avatar>
+                <q-icon name="fa-regular fa-user" size="sm" />
+              </q-item-section>
+
+              <q-item-section class="text-h6 q-mb-5">Profile</q-item-section>
+            </q-item>  
+            <q-item 
+              to="/notifications"
+              clickable 
+              v-ripple
+              exact
+            >
+              <q-item-section avatar>
+                <q-icon name="fa-solid fa-ellipsis" size="sm" />
+              </q-item-section>
+              
+              <q-item-section class="text-h6 q-mb-5">More</q-item-section>
+            </q-item>
+          </q-list>
+        </div>
+      </div>
     </q-drawer>
 
-    <q-drawer show-if-above v-model="right" side="right" bordered>
+    <q-drawer
+      show-if-above
+      v-model="right" 
+      side="right" 
+      bordered
+    >
       <q-input
         placeholder="Search Cwitter"
         class="q-ma-md"

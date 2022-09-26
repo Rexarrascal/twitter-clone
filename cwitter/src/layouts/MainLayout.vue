@@ -26,7 +26,7 @@
       <div class="row">
         <div class="col-4"></div>
 
-        <div class="col-8">
+        <div class="col-7">
           <q-icon
             class="q-pa-md"
             name="fa-brands fa-twitter"
@@ -45,7 +45,7 @@
                 <q-icon name="fa-solid fa-house" size="22px" />
               </q-item-section>
 
-              <q-item-section class="text-h6 q-mb-5">Home</q-item-section>
+              <q-item-section class="text-h6">Home</q-item-section>
             </q-item>  
             <q-item 
               to="/about"
@@ -58,7 +58,7 @@
                 <q-icon name="fa-light fa-hashtag" size="30px" />
               </q-item-section>
 
-              <q-item-section class="text-h6 q-mb-5">Explore</q-item-section>
+              <q-item-section class="text-h6 ">Explore</q-item-section>
             </q-item>
             <q-item 
               to="/notifications"
@@ -71,7 +71,7 @@
                 <q-icon name="fa-regular fa-bell" size="25px" />
               </q-item-section>
 
-              <q-item-section class="text-h6 q-mb-5">Notifications</q-item-section>
+              <q-item-section class="text-h6 ">Notifications</q-item-section>
             </q-item>  
             <q-item 
               to="/messages"
@@ -84,7 +84,7 @@
                 <q-icon name="fa-regular fa-envelope" size="25px" />
               </q-item-section>
 
-              <q-item-section class="text-h6 q-mb-5">Messages</q-item-section>
+              <q-item-section class="text-h6 ">Messages</q-item-section>
             </q-item>
 
              <q-item 
@@ -98,7 +98,7 @@
                 <q-icon name="fa-regular fa-bookmark" size="sm" />
               </q-item-section>
 
-              <q-item-section class="text-h6 q-mb-5">Bookmarks</q-item-section>
+              <q-item-section class="text-h6 ">Bookmarks</q-item-section>
             </q-item>  
             <q-item 
               to="/lists"
@@ -113,7 +113,7 @@
 
               
 
-              <q-item-section class="text-h6 q-mb-5">Lists</q-item-section>
+              <q-item-section class="text-h6 ">Lists</q-item-section>
             </q-item>
             <q-item 
               to="/profile"
@@ -126,7 +126,7 @@
                 <q-icon name="fa-regular fa-user" size="sm" />
               </q-item-section>
 
-              <q-item-section class="text-h6 q-mb-5">Profile</q-item-section>
+              <q-item-section class="text-h6">Profile</q-item-section>
             </q-item>  
             <q-item 
               to="/more"
@@ -141,6 +141,31 @@
               
               <q-item-section class="text-h6 q-mb-5">More</q-item-section>
             </q-item>
+
+            <q-btn 
+              class='full-width q-mb-xl'
+              color="primary" 
+              label="Cweet" 
+              size='lg'
+              rounded
+              no-caps
+            />
+            <div class='q-mt-xl'>
+              <div class="row">
+                <div class="col-3">
+                  <q-avatar>
+                    <img src="https://cdn.quasar.dev/img/avatar5.jpg" />
+                  </q-avatar>
+                </div>
+
+                <div class="col-8">
+                  <q-item-label class='q-mt-sm'>
+                  <strong>Serkan Oz</strong> 
+                  <br> @oz_serkan
+                </q-item-label>
+                </div>
+              </div>
+            </div>
           </q-list>
         </div>
 

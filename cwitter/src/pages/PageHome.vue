@@ -46,6 +46,7 @@
             v-for="cweet in cweets" 
             :key="cweet.date" 
             class="q-py-md"
+            clickable
           >
             <q-item-section avatar top>
               <q-avatar>

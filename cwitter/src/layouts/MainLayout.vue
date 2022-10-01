@@ -151,6 +151,20 @@
               no-caps
             />
           </q-list>
+
+          <div class="bottomProfile">
+              <q-item>
+                <q-avatar class='q-mr-sm'>
+                    <img src="https://cdn.quasar.dev/img/avatar5.jpg" />
+                  </q-avatar>
+
+                  <q-item-label class="q-mt-sm">
+                    <strong>Serkan Oz</strong>
+                    <br />
+                    @oz_serkan
+                  </q-item-label>
+              </q-item>
+            </div>
         </div>
         
       </div>
@@ -486,6 +500,7 @@ export default {
 </script>
 
 <style lang="sass">
+
 * 
   margin: 0
   padding: 0
@@ -496,7 +511,10 @@ export default {
   flex-direction: row
 
 .navbar
+  display: flex
+  flex-direction: column
   width: 275px
+  height: 100vh
   padding: 0 11px
   position: relative
   order: 1
@@ -505,7 +523,11 @@ export default {
   display: grid
   position: fixed
   width: 253px
+  height: inherit
 
+.bottomProfile
+  position: absolute
+  bottom: 2vh
   
 .content
   width: 600px
@@ -538,9 +560,8 @@ export default {
   order: 4
 
 
-
 .topTweetsIcon
-  flex-wrap: wrap
+  
 
 // .nav-item
 //   padding: 11px

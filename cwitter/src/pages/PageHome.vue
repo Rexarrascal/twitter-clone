@@ -1,6 +1,5 @@
 <template>
   <q-page class="relative-position">
-    <q-scroll-area class="absolute full-width full-height">
       <div class="q-py-lg q-px-md row items-end q-col-gutter-md">
         <div class="col">
           <q-input
@@ -104,7 +103,7 @@
           </q-item>
         </transition-group>
       </q-list>
-    </q-scroll-area>
+    
   </q-page>
 </template>
 
